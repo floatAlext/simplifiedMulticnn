@@ -1,0 +1,7 @@
+两个客户端A & B，一个服务端C（3个线程，Main & thread1(充当server1) & thread2（充当server2））
+得到了A应该从B拿多少列的数组的计算公式，以及A compute之后应该保留多少列的计算公式
+得到了B应该从数组的哪一列开始卷积的计算公式，以及Bcompute之后应该保留多少列的计算公式
+由服务端的Main Thread计算上面的四个计算公式，然后告诉server2，A要从B那儿拿x列，于是server2让B传x列数据过来，server2把数据再传给server1，server1再传给A
+最终A拿到了自己想从B那儿拿的数据，同时A从C的main thread知道了下一层的计算结果应该保留最左边的多少列，B也从C的main thread知道了下一层的计算结果应该保留最右边的多少列
+实际上实现起来困难重重，但车到山前必有路，没有解决不了的问题，只有想不到的idea
+
